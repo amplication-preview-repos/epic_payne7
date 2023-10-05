@@ -17,3 +17,20 @@ model User {
   updatedAt DateTime @updatedAt
   username  String   @unique
 }
+
+model SupportTicket {
+  createdAt DateTime                  @default(now())
+  details   String
+  email     String
+  id        String                    @id @default(cuid())
+  priority  EnumSupportTicketPriority @default("High")
+  subject   String
+  updatedAt DateTime                  @updatedAt
+  username  String                    @unique
+}
+
+enum EnumSupportTicketPriority {
+  High
+  Medium
+  Low
+}
